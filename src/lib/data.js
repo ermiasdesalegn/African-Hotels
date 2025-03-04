@@ -4,7 +4,7 @@ export const cities = [
     { id: 3, name: "Marrakech", hotels: 1989, avgPrice: 187, image: "/assets/morocco1.jpg" },
     { id: 4, name: "Zanzibar Island", hotels: 1652, avgPrice: 149, image: "/assets/tanzania.jpg" },
     { id: 5, name: "Kapama Private Game Reserve", hotels: 1652, avgPrice: 149, image: "/assets/southafrica.jpg" },
-    { id: 6, name: "Myrtle Beach", hotels: 1652, avgPrice: 149, image: "/assets/myrtle-beach.jpg" },
+    { id: 6, name: "Ellerman House", hotels: 1652, avgPrice: 149, image: "/assets/capetown.jpg" },
   ];
   
   export const destinations = [

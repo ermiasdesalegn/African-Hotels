@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
   return (
     <div className='max-w-[1100px] mx-auto'>
         <Nav/>
-        <DatePicker selected={startDate} onChange={(date: Date | null) => setStartDate(date)} />
+        <DatePicker />
         <PrimePage/>
         <HotDeals/>
         <Destinations/>

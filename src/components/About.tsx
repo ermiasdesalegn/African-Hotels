@@ -3,7 +3,6 @@ import { useState, ChangeEvent } from "react";
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 
-// Define the type for the African countries list
 interface Country {
   code: string;
   name: string;
@@ -66,66 +65,37 @@ const africanCountries: Country[] = [
 ];
 
 function About() {
-  // Define the state with type 'string' for selectedCountry
   const [selectedCountry, setSelectedCountry] = useState<string>("ET");
 
-  // Handle the change event for the select element
   const handleCountryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountry(e.target.value);
   };
 
   return (
-    <div className="bg-[#022] text-white h-96 ">
-      <div className="max-w-[1100px] mx-auto">
-        <div className="flex p-4 justify-between">
-          <div className="flex">
-            <h1 className="text-2xl font-bold">Afrihot</h1>
-          </div>
+    <div className="bg-[#022] text-white py-10">
+      <div className="max-w-[1100px] mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <h1 className="text-2xl font-bold mb-4 md:mb-0">Afrihot</h1>
 
           {/* Social Media Icons */}
-          <div className="flex space-x-4">
-            <a
-              href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"
-              aria-label="Facebook"
-            >
-              <FaFacebookF className="w-5 h-5 text-white" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"
-              aria-label="Twitter"
-            >
-              <FaTwitter className="w-5 h-5 text-white" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"
-              aria-label="Instagram"
-            >
-              <FaInstagram className="w-5 h-5 text-white" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"
-              aria-label="YouTube"
-            >
-              <FaYoutube className="w-5 h-5 text-white" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedinIn className="w-5 h-5 text-white" />
-            </a>
+          <div className="flex space-x-4 flex-wrap justify-center">
+            {[FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaLinkedinIn].map((Icon, index) => (
+              <a
+                key={index}
+                href="#"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition"
+                aria-label="Social Media"
+              >
+                <Icon className="w-5 h-5 text-white" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="w-64 p-2 px-4">
+        <div className="w-full max-w-xs mt-6">
           <select
             id="african-countries"
-            className="block w-full mt-2 px-8 py-2 bg-[#022] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="block w-full px-4 py-2 bg-[#022] border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={selectedCountry}
             onChange={handleCountryChange}
           >
@@ -137,27 +107,33 @@ function About() {
           </select>
         </div>
 
-        <div className="grid grid-cols-4 p-4">
-          <div className="flex flex-col gap-3">
-            <a href="#">Company</a>
-            <a href="#">Jobs</a>
-            <a href="#">Affiliate</a>
-            <a href="#">Jobs</a>
-            <a href="#">AfroHot Business Studio</a>
+        {/* Footer Links */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+          <div className="flex flex-col gap-2">
+            <h2 className="font-semibold">Company</h2>
+            <a href="#" className="hover:text-gray-300 transition">About</a>
+            <a href="#" className="hover:text-gray-300 transition">Jobs</a>
+            <a href="#" className="hover:text-gray-300 transition">Affiliate</a>
+            <a href="#" className="hover:text-gray-300 transition">AfroHot Business Studio</a>
           </div>
 
-          <div className="flex flex-col gap-3">
-            <a href="#">Privacy & Cookies</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Partner Dispute</a>
-            <a href="#">Legal Information</a>
-            <a href="#">DSA Information</a>
+          <div className="flex flex-col gap-2">
+            <h2 className="font-semibold">Legal</h2>
+            <a href="#" className="hover:text-gray-300 transition">Privacy & Cookies</a>
+            <a href="#" className="hover:text-gray-300 transition">Terms & Conditions</a>
+            <a href="#" className="hover:text-gray-300 transition">Partner Dispute</a>
+            <a href="#" className="hover:text-gray-300 transition">Legal Information</a>
           </div>
 
-          <div className="col-span-2">
-            <h1 className="text-2xl">
+          <div className="col-span-1 sm:col-span-2">
+            <h2 className="text-lg font-semibold mb-2">
               Get exclusive inspiration for your next stay – subscribe to our newsletter.
-            </h1>
+            </h2>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full p-2 rounded-md bg-gray-800 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
           </div>
         </div>
       </div>
